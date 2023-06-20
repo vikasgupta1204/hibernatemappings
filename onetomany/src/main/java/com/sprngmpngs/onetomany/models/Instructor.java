@@ -31,6 +31,7 @@ public class Instructor {
 
     @JsonManagedReference
     @OneToMany(mappedBy ="instructor",
+            fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,CascadeType.MERGE,
                     CascadeType.PERSIST,CascadeType.REFRESH})
     List<Course> courses;
@@ -39,8 +40,6 @@ public class Instructor {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="instructor_detail_id")
     private InstructorDetail instructorDetail;
-
-
 
 
 }
